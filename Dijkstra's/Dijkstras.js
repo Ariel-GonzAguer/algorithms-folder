@@ -127,7 +127,7 @@ This priority queue is better than a regular queue since it allows us to evaluat
 */
 
 import { PriorityQueue } from "./priorityQueue.js";
-const dijkstras2 = (graph, startingVertex) => {
+export const dijkstras2 = (graph, startingVertex) => {
   const distances = {};
   const previous = {};
   //1.1 First, let’s set up the Priority Queue that we will use to hold the vertices we will evaluate as we traverse through the graph. Right after the previous object is instantiated, create a const variable, queue, and set it to a new instance of a PriorityQueue.
@@ -169,6 +169,8 @@ const dijkstras2 = (graph, startingVertex) => {
 
 // 5.1  We’ve gotten through the basis of Dijkstra’s. Run the function on the test graph and print out the result, you should see the following shortest distances:
 /*
+const results = dijkstras(testGraph, testGraph.vertices[0]);
+console.log(results);
 // Output:
 Output-only Terminal
 Output:
@@ -182,4 +184,20 @@ Output:
      E: Vertex { data: 'D', edges: [Object] },
      F: Vertex { data: 'E', edges: [Object] },
      G: Vertex { data: 'E', edges: [Object] } } }
+*/
+
+// 4.Shortest Path to a Target Vertex
+/*
+Our current implementation of Dijkstra’s returns the shortest paths for all of the vertices in the graph. We can build upon this to create a function in shortestPath.js that reconstructs the full path to one vertex.
+
+We will need to make a call to dijkstras() to get the map of distances and previous vertices. From there we can grab the target vertex’s shortest distance from distances and build the entire path using the previous vertices.
+
+We cannot do this while dijkstras() continues to calculate the paths, because we cannot guarantee that the first encounter of the target vertex is the shortest path. Doing it after all the paths have been evaluated covers the possibility that an alternate path later in the queue will be shorter than the first one, particularly when there are negative distances.
+
+--> See shortestPath.js for the implementation <--
+*/
+
+// 5.Review
+/*
+
 */
